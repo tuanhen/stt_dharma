@@ -50,9 +50,15 @@ Route::group(['middleware' => ['auth']],function(){
     Route::match(['get','post'],'/admin/delete-kasMasuk/{id}','KasMasukController@deleteKasMasuk');
     Route::get('/admin/view-kasMasuk','KasMasukController@tampilKasMasuk');
 
+     //Kas Masuk Route (Admin dan Pengurus)
+     Route::match(['get','post'],'/admin/add-creditCard','CreditCardController@addCreditCard');
+     Route::match(['get','post'],'/admin/edit-kasMasuk/{id}','KasMasukController@editKasMasuk');
+     Route::match(['get','post'],'/admin/delete-kasMasuk/{id}','KasMasukController@deleteKasMasuk');
+     Route::get('/admin/view-creditCard','CreditCardController@tampilCreditCard');
+
     //kas keluar Route (Admin dan Pengurus)
     Route::match(['get','post'],'/admin/add-kasKeluar','KasKeluarController@addKasKeluar');
-    Route::match(['get','post'],'/admin/edit-/{id}','KasKeluarController@editKasKeluar');
+    Route::match(['get','post'],'/admin/edit-kasKeluar/{id}','KasKeluarController@editKasKeluar');
     Route::match(['get','post'],'/admin/delete-kasKeluar/{id}','KasKeluarController@deleteKaskeluar');
     Route::get('/admin/view-kasKeluar','KaskeluarController@tampilKasKeluar');
 
@@ -95,6 +101,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/admin/saldo','laporanController@export_pdf_saldo');
     Route::get('/admin/absensi','laporanController@export_pdf_absensi');
     Route::get('/admin/users','laporanController@export_pdf_users');
+    Route::get('/admin/kasAnggota','laporanController@export_pdf_kasAnggota');
 
     Route::get('admin/chart/{type}','ChartController@makeChart');
 

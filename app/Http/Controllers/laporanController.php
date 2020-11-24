@@ -7,6 +7,7 @@ use App\User;
 use App\KasMasuk;
 use App\KasKeluar;
 use App\Absensi;
+use App\IuranAnggota;
 use Carbon\Carbon;
 use PDF;
 
@@ -50,6 +51,21 @@ class laporanController extends Controller
         return $pdf->stream();
     }
 
+    public function export_pdf_kasAnggota()
+    {
+        // Fetch all kas_masuk from database
+        $data = IuranAnggota::get();
+        $total1 = IuranAnggota::sum('jumlah_iuran');
+        $no = 1;
+        // echo "<pre>"; print_r($data); die;
+        // Send data to the view using loadView function of PDF facade
+        $pdf = PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif'])->loadView('laporan.kasAnggota', compact('data','no','total1'));
+        // If you want to store the generated pdf to the server then you can use the store function
+        $pdf->save(storage_path().'_filename.pdf');
+        // Finally, you can download the file using download function
+        return $pdf->stream();
+    }
+
     public function export_pdf_kasKeluar()
     {
         // Fetch all kas keluar from database
@@ -69,16 +85,19 @@ class laporanController extends Controller
     {
         // Fetch all kas keluar from database
         $kas_masuk = KasMasuk::get();
+        $kas_anggota = IuranAnggota::get();
         $kas_keluar = KasKeluar::get();
         $no =1;
         $kas_masuk = json_decode(json_encode($kas_masuk));
+        $kas_anggota = json_decode(json_encode($kas_anggota));
         $kas_keluar = json_decode(json_encode($kas_keluar));
         $total1 = KasMasuk::sum('jumlah');
         $total2 = KasKeluar::sum('jumlah');
-        $subtotal = $total1 - $total2;
+        $total3 = IuranAnggota::sum('jumlah_iuran');
+        $subtotal = ($total1 + $total3) - $total2;
         // echo "<pre>"; print_r($data); die;
         // Send data to the view using loadView function of PDF facade
-        $pdf = PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif'])->loadView('laporan.saldo', compact('kas_masuk','kas_keluar','total1','no','total2','subtotal'));
+        $pdf = PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif'])->loadView('laporan.saldo', compact('kas_masuk','kas_keluar','total1','no','total2','subtotal','total3'));
         // If you want to store the generated pdf to the server then you can use the store function
         $pdf->save(storage_path().'_filename.pdf');
         // Finally, you can download the file using download function

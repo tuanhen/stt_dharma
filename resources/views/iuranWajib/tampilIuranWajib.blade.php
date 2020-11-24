@@ -39,7 +39,7 @@
               <tbody>
                   @foreach($iuranWajib as $iw)
                 <tr class="gradeX">
-                  <td>{{ $iw->id }}</td>
+                  <td>{{ $no++ }}</td>
                   <td>{{ $iw->name }}</td>
                   <td>{{ $iw->jumlah_iuran_wajib }}</td>
                   <td class="center">

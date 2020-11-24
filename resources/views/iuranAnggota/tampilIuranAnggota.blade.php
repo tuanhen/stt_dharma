@@ -42,7 +42,7 @@
                   @foreach($iuranAnggota as $ia)
                   
                 <tr class="gradeX">
-                  <td>{{ $ia->id }}</td>
+                  <td>{{ $no++ }}</td>
                   <td>{{ $ia->user->name ?? '-' }}</td>
                   <td>{{ $ia->jumlah_iuran }}</td>
                   <td>{{ $ia->tgl_iuran }}</td>

@@ -27,7 +27,7 @@
           </div>
           <div class="widget-content nopadding">
             <form class="form-horizontal" method="post" action="{{ url('/admin/add-absensi') }}" name="addAbsensi" id="addAbsensi" novalidate="novalidate">{{ csrf_field() }}
-              {{-- <div class="control-group">
+              {{-- <div class="control-group"> 
                 <label class="control-label">Tanggal Rapat</label>
                 <div class="controls">
                   <input type="date" name="tgl_rapat" id="tgl_rapat">
@@ -47,7 +47,7 @@
                   <tbody>
                       @foreach($users as $u)
                     <tr class="gradeX">
-                      <td>{{ $u->id }}</td>
+                      <td>{{ $no++ }}</td>
                       <td>
                         <input type="hidden" name="user_id[]" id="user_id" value="{{$u->id}}" readonly>{{$u->name}}
                         {{-- <select readonly name="user_id" id="user_id" style="width: 220px">

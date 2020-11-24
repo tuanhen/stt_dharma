@@ -14,12 +14,13 @@ class IuranWajibController extends Controller
     public function tampilIuranWajib(Request $request){
         $iuranWajib = IuranWajib::get();
         $iuranWajib = json_decode(json_encode($iuranWajib));
+        $no = 1;
         foreach($iuranWajib as $key => $val){
             $users_name = User::where(['id'=>$val->user_id])->first();
             $iuranWajib[$key]->name = $users_name->name;
         }
         
-        return view('iuranWajib.tampilIuranWajib')->with(compact('iuranWajib'));
+        return view('iuranWajib.tampilIuranWajib')->with(compact('iuranWajib','no'));
     }
 
     public function addIuranWajib(Request $request){

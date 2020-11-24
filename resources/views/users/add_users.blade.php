@@ -48,7 +48,7 @@
               <div class="control-group">
                 <label class="control-label">Tempat & Tanggal Lahir</label>
                 <div class="controls">
-                  <input type="text" name="ttl" id="ttl">
+                  <input type="date" name="ttl" id="ttl">
                 </div>
               </div>
               <div class="control-group">

@@ -62,21 +62,23 @@ class AbsensiController extends Controller
             // return redirect('/admin/view-kasMasuk')->with('flash_message_success','Kas Masuk berhasil ditambah');
         }
         $users = User::where(['name'=>0])->get();
+        $no =1;
         // $users_dropdown = "<option selected disabled>Select</option>";
         // foreach($users as $u){
         //     $users_dropdown .= "<option value='".$u->id."'>".$u->name."</option>";
         // }
-        return view('absensi.add_absensi')->with(compact('users'));
+        return view('absensi.add_absensi')->with(compact('users','no'));
     }
-
+ 
     public function tampilAbsensi(Request $request){
         $absen = Absensi::get();
         $absen = json_decode(json_encode($absen));
+        $no = 1;
         foreach($absen as $key => $val){
             $users_name = User::where(['id'=>$val->user_id])->first();
             $absen[$key]->name = $users_name->name;
         }
-        return view('absensi.tampilAbsensi')->with(compact('absen'));
+        return view('absensi.tampilAbsensi')->with(compact('absen','no'));
     }
 
     public function editAbsensi(Request $request, $id=null){

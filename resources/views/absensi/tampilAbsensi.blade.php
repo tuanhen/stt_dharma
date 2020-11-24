@@ -41,7 +41,7 @@
               <tbody>
                   @foreach($absen as $abs)
                 <tr class="gradeX">
-                  <td>{{ $abs->id }}</td>
+                  <td>{{ $no++ }}</td>
                   <td>{{ $abs->tgl_rapat }}</td>
                   <td>{{ $abs->name }}</td>
                   <td>{{ $abs->status }}</td>

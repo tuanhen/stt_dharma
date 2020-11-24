@@ -48,10 +48,10 @@ class KasKeluarController extends Controller
     public function tampilKasKeluar(Request $request){
         $kas_keluar = KasKeluar::get();
         $kas_keluar = json_decode(json_encode($kas_keluar));
-       
+        $no =1;
         $total = KasKeluar::sum('jumlah');
        
-        return view('kas_keluar.tampilKasKeluar')->with(compact('kas_keluar','total'));
+        return view('kas_keluar.tampilKasKeluar')->with(compact('kas_keluar','total','no'));
         
     }
 

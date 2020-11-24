@@ -14,7 +14,8 @@ class IuranAnggotaController extends Controller
 {
     public function tampilIuranAnggota(Request $request){
         $iuranAnggota = IuranAnggota::with(['user:id,name'])->get();
-        return view('iuranAnggota.tampilIuranAnggota')->with(compact('iuranAnggota'));
+        $no =1;
+        return view('iuranAnggota.tampilIuranAnggota')->with(compact('iuranAnggota','no'));
     } 
 
     public function tampilAddIuranAnggota(){

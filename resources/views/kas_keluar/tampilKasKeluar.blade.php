@@ -40,12 +40,12 @@
               <tbody>
                   @foreach($kas_keluar as $ks_kl)
                 <tr class="gradeX">
-                  <td>{{ $ks_kl->id }}</td>
+                  <td>{{ $no++ }}</td>
                   <td>{{ $ks_kl->keterangan }}</td>
                   <td>{{ $ks_kl->tanggal_masuk }}</td>
                   <td>Rp. {{ number_format($ks_kl->jumlah) }}</td>
                   <td class="center">
-                    <a href="{{ url('/admin/edit-/'.$ks_kl->id) }}" class="btn btn-primary btn-mini">Edit</a> 
+                    <a href="{{ url('/admin/edit-kasKeluar/'.$ks_kl->id) }}" class="btn btn-primary btn-mini">Edit</a> 
                     <a href="#myAlert{{ $ks_kl->id }}" data-toggle="modal" class="btn btn-danger btn-mini">Hapus</a>
                 </td>
                 </tr>

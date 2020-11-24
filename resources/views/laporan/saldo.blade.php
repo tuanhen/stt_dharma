@@ -27,6 +27,7 @@
                <tr>
                  <th>No</th>
                  <th>Kas Masuk</th>
+                 <th>Kas Anggota</th>
                  <th>Kas Keluar</th>
                  <th>Saldo</th>
                  </thead>
@@ -38,6 +39,7 @@
                <tr class="gradeX" align="center">
                  <td>{{ $no++ }}</td>
                  <td>Rp. {{ number_format($total1) }}</td>
+                 <td>Rp. {{ number_format($total3) }}</td>
                  <td>Rp. {{ number_format($total2) }}</td>
                  <td>Rp. {{ number_format($subtotal) }}</td>
                 

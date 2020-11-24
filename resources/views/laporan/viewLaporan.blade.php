@@ -44,21 +44,26 @@
                 </tr>
                 <tr class="gradeX">
                   <td>2</td>
+                  <td>Laporan Kas Anggota</td>
+                  <td><a href="{{ URL('/admin/kasAnggota') }}" class="btn btn-primary btn-mini">Download</a> </td>
+                </tr>
+                <tr class="gradeX">
+                  <td>3</td>
                   <td>Laporan Kas Keluar</td>
                   <td><a href="{{ URL('/admin/kasKeluar') }}" class="btn btn-primary btn-mini">Download</a> </td>
                 </tr>
                 <tr class="gradeX">
-                  <td>3</td>
+                  <td>4</td>
                   <td>Laporan Saldo Kas</td>
                   <td><a href="{{ URL('/admin/saldo') }}" class="btn btn-primary btn-mini">Download</a> </td>
                 </tr>
                 <tr class="gradeX">
-                  <td>4</td>
+                  <td>5</td>
                   <td>Laporan Absensi</td>
                   <td><a href="{{ URL('/admin/absensi') }}" class="btn btn-primary btn-mini">Download</a> </td>
                 </tr>
                 <tr class="gradeX">
-                  <td>5</td>
+                  <td>6</td>
                   <td>Laporan Data Anggota</td>
                   <td><a href="{{ URL('/admin/users') }}" class="btn btn-primary btn-mini">Download</a> </td>
                 </tr>
